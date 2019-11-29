@@ -1,0 +1,41 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 19, 2019, 1:24:48 PM
+    Author     : alumno
+*/
+*{
+    text-decoration:none;
+    font-family:"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+.banner{
+    /*background-image: url(../images/banner.jpg);*/
+    background-color: limegreen;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+body{
+    margin: 0px;
+}
+.top{
+    border-color: transparent;
+    height: 80px;
+}
+.noborder{
+    border-color: transparent;
+}
+.tabla{
+    width: 100%;
+    margin: 0px;
+}
+
+
