@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Model quotesql="1" tablecharset="" mysql_version="504" mssql_version="2005" derby_version="106" ingres_version="9">
+<Model quotesql="2" tablecharset="" mysql_version="504" mssql_version="2005" derby_version="106" ingres_version="9">
   <Entity name="carreras" schema="gestion2019" Unlogged="false" PKConstraintName="carreras_pkey" PKClustered="0">
     <Column name="idcarr">
       <PrimaryKey>true</PrimaryKey>
@@ -182,17 +182,6 @@
       <Unique>false</Unique>
       <Index>false</Index>
       <Comment>Año que se dicta la materia</Comment>
-      <UserTypes/>
-    </Column>
-    <Column name="materiasparalelo">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>false</ForeignKey>
-      <Type>42</Type>
-      <Length>1</Length>
-      <Nullable>true</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
       <UserTypes/>
     </Column>
     <Column name="grupoid_grupo">
@@ -850,10 +839,21 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="programacionidprog2">
+    <Column name="programacionidprog3">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>proyecto.programacion.idprog</ReferencedColumn>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="programacionidprog2">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
       <Type>9</Type>
       <Length>0</Length>
       <Nullable>false</Nullable>
@@ -1494,18 +1494,6 @@
       <Column>idusu</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="programa">
-    <ReferenceTable>Proyectos</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
-    <ReferencedTable>programacion</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
-    <Columns>
-      <Column>programacionidprog2</Column>
-    </Columns>
-    <RefColumns>
-      <Column>idprog</Column>
-    </RefColumns>
-  </ForeignKey>
   <ForeignKey name="FKAnuncios346335">
     <ReferenceTable>Anuncios</ReferenceTable>
     <ReferenceSchema>gestion2019</ReferenceSchema>
@@ -1516,6 +1504,18 @@
     </Columns>
     <RefColumns>
       <Column>idusu</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="programa">
+    <ReferenceTable>Proyectos</ReferenceTable>
+    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferencedTable>programacion</ReferencedTable>
+    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <Columns>
+      <Column>programacionidprog3</Column>
+    </Columns>
+    <RefColumns>
+      <Column>idprog</Column>
     </RefColumns>
   </ForeignKey>
 </Model>
