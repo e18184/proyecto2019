@@ -1,9 +1,17 @@
-.th, td {
+*{
+    font-family:"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.tabla{
+    width: 100%;
+    border: 1px solid #ddd !important;
+}
+th, td {
+    border: 1px solid #ddd !important;
+    width: auto !important;
     padding: 15px;
 }
-.table, th, td{
-    border: 1px solid #ddd !important;
-    width: 100%;
+#input-autosize{
+    width: 97%;
 }
 
 table{

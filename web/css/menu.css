@@ -1,3 +1,16 @@
+/*inicio usuario alvarez*/
+*{
+    font-family:"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+a{
+    text-decoration:none;
+    text-transform:uppercase;
+
+}
+/* fin usuario alvarez*/
+
+
+
 #menu ul li {
     background-color:#2e518b;
 }
@@ -16,8 +29,8 @@
     font-size:15px;
     padding:10px;
     font-family:"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform:uppercase;
-  letter-spacing:1px;
+    text-transform:uppercase;
+    letter-spacing:1px;
 }
 
 #menu ul li {

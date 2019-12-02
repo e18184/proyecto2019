@@ -1,9 +1,10 @@
 *{
     margin: 0px;
     padding: 0px;
-    font-family: cursive;
+    text-transform:uppercase;
+    font-family:"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-#footer{
+/*#footer{
     width: 100%;
     height: 50px;
 }
@@ -14,4 +15,4 @@
 }
 #lbl-footer{
     font-size: 18px;
-}
+}*/

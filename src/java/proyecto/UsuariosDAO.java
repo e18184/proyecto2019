@@ -407,5 +407,9 @@ public class UsuariosDAO {
 			throw new PersistentException(e);
 		}
 	}
+
+    public static Usuarios getUsuariosByORMID(Usuarios usuario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 	
 }
