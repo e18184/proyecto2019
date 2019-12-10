@@ -9,28 +9,42 @@
         <title>Cargar Notas</title>
     </head>
     <body>
-        <h1 class="centrar-texto">Cargar Notas</h1>
-        
-        <table class="tabla" aling="center" border="0">
-            <thead>
-                <tr>
-                    <th>Sigla</th>
-                    <th>Nombre de la Materia</th>
-                    <th>Gestion</th>
-                    <th>Registrar</th>
-                    <th>Ver Notas</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
+        <h1 class="centrar-texto">&nbsp;Lista Estudiantes</h1>
+        <div class="centrar">
+            <div class="notas">
+                <form:form action="cargarnotas.htm" method="POST" commandName="lista">
+                    <table class="tabla" aling="center" border="0">
+                        <thead>
+                            <tr>
+                                <th>Estudiante</th>
+                                <th>Nota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${lista.getLista()}" var="prog" >
+                                <tr>
+                                    <td>   
+                                        <span ><c:out value="${prog.getNombre()}" ></c:out></span>
+                                        <span><c:out value="${prog.getAp()}"></c:out></span>
+                                        <span><c:out value="${prog.getAm()}"></c:out></span>
+                                        </td>
 
+                                        <td>    
+                                        <form:hidden value="${prog.getId_prog()}" path="id_prog"/>
+                                        <form:input id="input-autosize" value="${prog.getNotafinal()}" placeholder="Introduzca Nota" path="notafinal"></form:input>
+                                        </td>
+                                    </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                    <br>
+                    <br>
+                    <div class="centrar">
+                        <form:button>Aceptar</form:button>
+                        <a href="listarmaterias.htm"><button type="button">Cancelar</button></a>
+                        </div>
+                </form:form>   
+            </div>
+        </div>
     </body>
 </html>

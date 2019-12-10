@@ -50,6 +50,8 @@
                 <prop key="listaestudiantemateria.htm">formListaEstudianteMateria</prop>
                 <prop key="realizaranuncio.htm">formRealizarAnuncio</prop>
                 <prop key="cargarnotas.htm">formCargarNotas</prop>
+                <prop key="listarmaterias.htm">formListarMaterias</prop>
+                <prop key="visualizarnotas.htm">formVisualizarNotas</prop>
                 
             </props>
         </property>
@@ -91,5 +93,7 @@
     <bean name="formListaEstudianteMateria" class="controlador.estudiante.ListaEstudianteMateriaControlador"/>
     <bean name="formRealizarAnuncio" class="controlador.docente.RealizarAnuncioControlador" />
     <bean name="formCargarNotas" class="controlador.docente.CargarNotasControlador" />
+    <bean name="formListarMaterias" class="controlador.docente.ListarMateriasControlador" />
+    <bean name="formVisualizarNotas" class="controlador.docente.VisualizarNotasControlador" />
     
 </beans>

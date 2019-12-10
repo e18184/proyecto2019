@@ -19,8 +19,8 @@ ALTER TABLE "gestion2019"."Proyectos" DROP CONSTRAINT "programacionproyectos";
 ALTER TABLE "gestion2019"."Proyectos" DROP CONSTRAINT "tutor";
 ALTER TABLE "gestion2019"."Tribunal" DROP CONSTRAINT "Tribunal";
 ALTER TABLE "gestion2019"."Tribunal" DROP CONSTRAINT "Tribunal2";
-ALTER TABLE "gestion2019"."Proyectos" DROP CONSTRAINT "programa";
 ALTER TABLE "gestion2019"."Anuncios" DROP CONSTRAINT "FKAnuncios346335";
+ALTER TABLE "gestion2019"."Proyectos" DROP CONSTRAINT "programa";
 DROP VIEW IF EXISTS "gestion2019"."v_usuariorol";
 DROP TABLE IF EXISTS "gestion2019"."carreras" CASCADE;
 DROP TABLE IF EXISTS "gestion2019"."datos" CASCADE;
@@ -223,6 +223,7 @@ COMMENT ON COLUMN "gestion2019"."usurol"."idusu" IS 'Referencia a la tabla Usuar
 COMMENT ON COLUMN "gestion2019"."usurol"."idrol" IS 'Referencia a la tabla Roles';
 CREATE TABLE "gestion2019"."Proyectos" (
   "ID"                  varchar(255) NOT NULL, 
+  "programacionidprog3" int4 NOT NULL, 
   "programacionidprog2" int4 NOT NULL, 
   "AreaID"              int4 NOT NULL, 
   "Nota"                int4 NOT NULL, 
@@ -299,8 +300,8 @@ ALTER TABLE "gestion2019"."Proyectos" ADD CONSTRAINT "programacionproyectos" FOR
 ALTER TABLE "gestion2019"."Proyectos" ADD CONSTRAINT "tutor" FOREIGN KEY ("docentesidusu") REFERENCES "gestion2019"."docentes" ("idusu");
 ALTER TABLE "gestion2019"."Tribunal" ADD CONSTRAINT "Tribunal" FOREIGN KEY ("ProyectosID") REFERENCES "gestion2019"."Proyectos" ("ID");
 ALTER TABLE "gestion2019"."Tribunal" ADD CONSTRAINT "Tribunal2" FOREIGN KEY ("docentesidusu") REFERENCES "gestion2019"."docentes" ("idusu");
-ALTER TABLE "gestion2019"."Proyectos" ADD CONSTRAINT "programa" FOREIGN KEY ("programacionidprog2") REFERENCES "gestion2019"."programacion" ("idprog");
 ALTER TABLE "gestion2019"."Anuncios" ADD CONSTRAINT "FKAnuncios346335" FOREIGN KEY ("usuariosidusu") REFERENCES "gestion2019"."usuarios" ("idusu");
+ALTER TABLE "gestion2019"."Proyectos" ADD CONSTRAINT "programa" FOREIGN KEY ("programacionidprog3") REFERENCES "gestion2019"."programacion" ("idprog");
 INSERT INTO "gestion2019"."carreras"("idcarr", "nombre", "direccion", "telefono", "activo") VALUES (1, 'Informatica', 'campus tejar', '6640265', true);
 INSERT INTO "gestion2019"."carreras"("idcarr", "nombre", "direccion", "telefono", "activo") VALUES (2, 'Civil', 'campus universitario', '6644444', true);
 INSERT INTO "gestion2019"."usuarios"("idusu", "nombre", "apellido1", "apellido2", "sexo", "f_nac", "cedula", "telefono", "direccion", "foto", "activo") VALUES (1, 'Carlos', 'Perez', 'Cota', 'M', '09/24/2000', '4143805', '591673467', 'barrio moto mendez', 'sin foto', true);
@@ -330,3 +331,4 @@ INSERT INTO "gestion2019"."datos"("idusu", "login", "password", "activo") VALUES
 INSERT INTO "gestion2019"."usurol"("idusu", "idrol") VALUES (1, 1);
 INSERT INTO "gestion2019"."usurol"("idusu", "idrol") VALUES (1, 2);
 INSERT INTO "gestion2019"."usurol"("idusu", "idrol") VALUES (2, 1);
+INSERT INTO "gestion2019"."Anuncios"("usuariosidusu", "Fecha", "Titulo", "Mensaje", "Estado", "Archivo") VALUES (1, '19/05/19', 'Anuncio', 'Mensaje', true, 'imagen.jpg');

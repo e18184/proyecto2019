@@ -52,10 +52,6 @@ public class Proyectos implements Serializable {
 			this.programacion = (proyecto.Programacion) owner;
 		}
 		
-		else if (key == ORMConstants.KEY_PROYECTOS_PROGRAMACIONIDPROG) {
-			this.programacionidprog = (proyecto.Programacion) owner;
-		}
-		
 		else if (key == ORMConstants.KEY_PROYECTOS_DOCENTESIDUSU) {
 			this.docentesidusu = (proyecto.Docentes) owner;
 		}
@@ -88,11 +84,9 @@ public class Proyectos implements Serializable {
 	
 	private String archivo;
 	
-	private proyecto.Programacion programacionidprog;
+	private proyecto.Docentes docentesidusu;
 	
 	private java.util.Set ORM_tribunals = new java.util.HashSet();
-	
-	private proyecto.Docentes docentesidusu;
 	
 	public void setIdproyecto(String value) {
 		this.idproyecto = value;
@@ -234,30 +228,6 @@ public class Proyectos implements Serializable {
 	
 	private proyecto.Programacion getORM_Programacion() {
 		return programacion;
-	}
-	
-	public void setProgramacionidprog(proyecto.Programacion value) {
-		if (programacionidprog != null) {
-			programacionidprog.proyectos.remove(this);
-		}
-		if (value != null) {
-			value.proyectos.add(this);
-		}
-	}
-	
-	public proyecto.Programacion getProgramacionidprog() {
-		return programacionidprog;
-	}
-	
-	/**
-	 * This method is for internal use only.
-	 */
-	public void setORM_Programacionidprog(proyecto.Programacion value) {
-		this.programacionidprog = value;
-	}
-	
-	private proyecto.Programacion getORM_Programacionidprog() {
-		return programacionidprog;
 	}
 	
 	public void setDocentesidusu(proyecto.Docentes value) {
