@@ -53,7 +53,6 @@ public class PrincipalControler {
             if (roles.getIdrol()==r){
                 // MENU
                for (Iterator iterator2 = roles.idmenu.getIterator(); iterator2.hasNext();){
-                    
                     m = (Menus)iterator2.next();
                     System.out.println ("NOMBRE DEL MENU:"+m.getNombre());
                     smenus.add(m); 

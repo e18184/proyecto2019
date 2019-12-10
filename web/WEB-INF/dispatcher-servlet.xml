@@ -48,6 +48,7 @@
                 <prop key="principalcontenedor.htm">formPrincipalContenedor</prop>
                 <prop key="uanadir.htm">formUanadir</prop>
                 <prop key="listaestudiantemateria.htm">formListaEstudianteMateria</prop>
+                <prop key="ProgramarTaller.htm">formprogramarTaller</prop>
                 
             </props>
         </property>
@@ -87,5 +88,6 @@
     <bean name="formPrincipalContenedor" class="principal.PrincipalContenedorControler"/>
     <bean name="formUanadir" class="controlador.usuario.UanadirControler"/>
     <bean name="formListaEstudianteMateria" class="controlador.estudiante.ListaEstudianteMateriaControlador"/>
+    <bean name="formprogramarTaller" class="controlador.estudiante.ProgramarUnTaller"/>
     
 </beans>
