@@ -55,6 +55,10 @@ public class Proyectos implements Serializable {
 		else if (key == ORMConstants.KEY_PROYECTOS_DOCENTESIDUSU) {
 			this.docentesidusu = (proyecto.Docentes) owner;
 		}
+		
+		else if (key == ORMConstants.KEY_PROYECTOS_PROGRAMACIONIDPROG) {
+			this.programacionidprog = (proyecto.Programacion) owner;
+		}
 	}
 	
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
@@ -72,6 +76,8 @@ public class Proyectos implements Serializable {
 	
 	private proyecto.Programacion programacion;
 	
+	private int programacionidprog2;
+	
 	private proyecto.Area area;
 	
 	private int nota;
@@ -83,6 +89,8 @@ public class Proyectos implements Serializable {
 	private String resumen;
 	
 	private String archivo;
+	
+	private proyecto.Programacion programacionidprog;
 	
 	private proyecto.Docentes docentesidusu;
 	
@@ -138,6 +146,14 @@ public class Proyectos implements Serializable {
 	
 	public String getArchivo() {
 		return archivo;
+	}
+	
+	public void setProgramacionidprog2(int value) {
+		this.programacionidprog2 = value;
+	}
+	
+	public int getProgramacionidprog2() {
+		return programacionidprog2;
 	}
 	
 	public proyecto.Docentes[] getDocentess() {
@@ -252,6 +268,30 @@ public class Proyectos implements Serializable {
 	
 	private proyecto.Docentes getORM_Docentesidusu() {
 		return docentesidusu;
+	}
+	
+	public void setProgramacionidprog(proyecto.Programacion value) {
+		if (programacionidprog != null) {
+			programacionidprog.proyectos.remove(this);
+		}
+		if (value != null) {
+			value.proyectos.add(this);
+		}
+	}
+	
+	public proyecto.Programacion getProgramacionidprog() {
+		return programacionidprog;
+	}
+	
+	/**
+	 * This method is for internal use only.
+	 */
+	public void setORM_Programacionidprog(proyecto.Programacion value) {
+		this.programacionidprog = value;
+	}
+	
+	private proyecto.Programacion getORM_Programacionidprog() {
+		return programacionidprog;
 	}
 	
 	public String toString() {

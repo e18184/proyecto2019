@@ -335,6 +335,10 @@ public class ProgramacionDAO {
 			for(int i = 0; i < lProyectosess.length; i++) {
 				lProyectosess[i].setProgramacion(null);
 			}
+			proyecto.Proyectos[] lProyectoss = programacion.proyectos.toArray();
+			for(int i = 0; i < lProyectoss.length; i++) {
+				lProyectoss[i].setProgramacionidprog(null);
+			}
 			return delete(programacion);
 		}
 		catch(Exception e) {
@@ -356,6 +360,10 @@ public class ProgramacionDAO {
 			proyecto.Proyectos[] lProyectosess = programacion.proyectoses.toArray();
 			for(int i = 0; i < lProyectosess.length; i++) {
 				lProyectosess[i].setProgramacion(null);
+			}
+			proyecto.Proyectos[] lProyectoss = programacion.proyectos.toArray();
+			for(int i = 0; i < lProyectoss.length; i++) {
+				lProyectoss[i].setProgramacionidprog(null);
 			}
 			try {
 				session.delete(programacion);

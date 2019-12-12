@@ -29,5 +29,9 @@ License Type: Evaluation
 			<key column="`programacionidprog3`" not-null="true"/>
 			<one-to-many class="proyecto.Proyectos"/>
 		</set>
+		<set name="ORM_Proyectos" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="`programacionidprog`" not-null="true"/>
+			<one-to-many class="proyecto.Proyectos"/>
+		</set>
 	</class>
 </hibernate-mapping>

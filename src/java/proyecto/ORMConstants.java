@@ -56,6 +56,8 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	
 	final int KEY_PROGRAMACION_IDUSU = -1433251617;
 	
+	final int KEY_PROGRAMACION_PROYECTOS = 226836689;
+	
 	final int KEY_PROGRAMACION_PROYECTOSES = -1053270721;
 	
 	final int KEY_PROYECTOS_AREA = 79267390;
@@ -63,6 +65,8 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	final int KEY_PROYECTOS_DOCENTESIDUSU = -1565476854;
 	
 	final int KEY_PROYECTOS_PROGRAMACION = 2068859219;
+	
+	final int KEY_PROYECTOS_PROGRAMACIONIDPROG = 1170041352;
 	
 	final int KEY_PROYECTOS_TRIBUNALS = -149099609;
 	

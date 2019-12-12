@@ -25,6 +25,9 @@ public class Programacion implements Serializable {
 		if (key == ORMConstants.KEY_PROGRAMACION_PROYECTOSES) {
 			return ORM_proyectoses;
 		}
+		else if (key == ORMConstants.KEY_PROGRAMACION_PROYECTOS) {
+			return ORM_proyectos;
+		}
 		
 		return null;
 	}
@@ -63,6 +66,8 @@ public class Programacion implements Serializable {
 	private boolean estado;
 	
 	private java.util.Set ORM_proyectoses = new java.util.HashSet();
+	
+	private java.util.Set ORM_proyectos = new java.util.HashSet();
 	
 	/**
 	 * Identificador de la programación
@@ -169,6 +174,16 @@ public class Programacion implements Serializable {
 	}
 	
 	public final proyecto.ProyectosSetCollection proyectoses = new proyecto.ProyectosSetCollection(this, _ormAdapter, ORMConstants.KEY_PROGRAMACION_PROYECTOSES, ORMConstants.KEY_PROYECTOS_PROGRAMACION, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	
+	private void setORM_Proyectos(java.util.Set value) {
+		this.ORM_proyectos = value;
+	}
+	
+	private java.util.Set getORM_Proyectos() {
+		return ORM_proyectos;
+	}
+	
+	public final proyecto.ProyectosSetCollection proyectos = new proyecto.ProyectosSetCollection(this, _ormAdapter, ORMConstants.KEY_PROGRAMACION_PROYECTOS, ORMConstants.KEY_PROYECTOS_PROGRAMACIONIDPROG, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getIdprog());

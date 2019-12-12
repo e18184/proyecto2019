@@ -331,6 +331,10 @@ public class ProyectosDAO {
 				proyectos.getArea().proyectoses.remove(proyectos);
 			}
 			
+			if (proyectos.getProgramacionidprog() != null) {
+				proyectos.getProgramacionidprog().proyectos.remove(proyectos);
+			}
+			
 			if (proyectos.getDocentesidusu() != null) {
 				proyectos.getDocentesidusu().proyectos.remove(proyectos);
 			}
@@ -355,6 +359,10 @@ public class ProyectosDAO {
 			
 			if (proyectos.getArea() != null) {
 				proyectos.getArea().proyectoses.remove(proyectos);
+			}
+			
+			if (proyectos.getProgramacionidprog() != null) {
+				proyectos.getProgramacionidprog().proyectos.remove(proyectos);
 			}
 			
 			if (proyectos.getDocentesidusu() != null) {

@@ -71,6 +71,7 @@ public class ProyectosSetCollection extends org.orm.util.ORMSet {
 	 * Return an sorted array containing all of the persistent objects in ORMSet
 	 * @param propertyName Name of the property for sorting:<ul>
 	 * <li>idproyecto</li>
+	 * <li>programacionidprog2</li>
 	 * <li>nota</li>
 	 * <li>estado</li>
 	 * <li>titulo</li>
@@ -87,6 +88,7 @@ public class ProyectosSetCollection extends org.orm.util.ORMSet {
 	 * Return an sorted array containing all of the persistent objects in ORMSet
 	 * @param propertyName Name of the property for sorting:<ul>
 	 * <li>idproyecto</li>
+	 * <li>programacionidprog2</li>
 	 * <li>nota</li>
 	 * <li>estado</li>
 	 * <li>titulo</li>
