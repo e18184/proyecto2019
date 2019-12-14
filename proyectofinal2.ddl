@@ -331,4 +331,3 @@ INSERT INTO "gestion2019"."datos"("idusu", "login", "password", "activo") VALUES
 INSERT INTO "gestion2019"."usurol"("idusu", "idrol") VALUES (1, 1);
 INSERT INTO "gestion2019"."usurol"("idusu", "idrol") VALUES (1, 2);
 INSERT INTO "gestion2019"."usurol"("idusu", "idrol") VALUES (2, 1);
-INSERT INTO "gestion2019"."Anuncios"("usuariosidusu", "Fecha", "Titulo", "Mensaje", "Estado", "Archivo") VALUES (1, '19/05/19', 'Anuncio', 'Mensaje', true, 'imagen.jpg');

@@ -1,5 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,18 +23,15 @@
                     <form:input id="input-autosize" placeholder="Introduzca Titulo" path="titulo"></form:input>
                         <br>
                         <br>
-                    <form:textarea id="textarea" placeholder="Introduzca Mensaje" path="mensaje" rows="5" cols="32" />
+                    <form:textarea id="areatexto" placeholder="Introduzca Mensaje" path="mensaje" rows="5" />
                     <br>
                     <br>
                     <form:label path="fecha">Fecha de Emision</form:label>
+                        <c:set var="now" value="<%=new java.util.Date()%>" />
+                        <fmt:formatDate pattern="dd/MM/yyyy hh:mm" value="${now}" />
                         <br>
-                    <form:input id="input-autosize" placeholder="Fecha" value="18/11/2019" path="fecha"></form:input>
                         <br>
-                        <br>
-                    <form:label path="fecha">Subir Archivo</form:label>
-                        <button id="examinar" type="button">Examinar</button>
-                        <br>
-                    <form:input id="input-autosize" placeholder="ruta archivo" value="archivo.pdf" path="archivo" disabled="true"></form:input>
+                    <form:input  placeholder="ruta archivo" value="archivo.pdf" type="file" path="archivo"></form:input>
                         <br>
                         <br>
                     <form:checkbox id="idanuncio" path="estado" value="${anuncio.getIdanuncio()}" label="Habilitado"
@@ -41,7 +39,7 @@
                     <br>
                     <br>
                     <div class="centrar">
-                        <form:button>Aceptar</form:button>
+                        <form:button class="boton-aceptar">Aceptar</form:button>
                         </div>
                 </form:form>            
             </div>

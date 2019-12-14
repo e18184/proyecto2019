@@ -22,6 +22,9 @@ import org.springframework.web.servlet.ModelAndView;
 import proyecto.Dicta;
 import proyecto.GrupoDAO;
 import modelo.Programaciones;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import proyecto.Grupo;
 import proyecto.Programacion;
 import proyecto.ProgramacionDAO;
@@ -34,11 +37,10 @@ import proyecto.UsuariosDAO;
  */
 @Controller
 @SessionAttributes({"miusuario"})
-@RequestMapping("cargarnotas.htm")
 public class CargarNotasControlador {
 
-    @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView cargarnotas(Model modelo, @RequestParam("id") int id_group, @ModelAttribute("miusuario") Usuarios usuario) {
+    @RequestMapping(value = "/cargarnotas.htm", method = RequestMethod.GET)
+    public ModelAndView cargarnotas(Model model, @RequestParam("id") int id_group, @ModelAttribute("miusuario") Usuarios usuario) {
         ModelAndView vista = new ModelAndView();
         //List<Imparte> listaimparte = null;
 
@@ -64,7 +66,7 @@ public class CargarNotasControlador {
             Programaciones nuevoprog = new Programaciones();
             nuevoprog.setLista(listainterna);
 
-            modelo.addAttribute("lista", nuevoprog);
+            model.addAttribute("lista", nuevoprog);
 
             return vista;
         } catch (PersistentException ex) {
@@ -74,25 +76,31 @@ public class CargarNotasControlador {
         return vista;
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView cargarnotasPOST(
-            @ModelAttribute("lista") Programaciones[] lista,
-            @RequestParam("notafinal")  String notas[],
-            @RequestParam("id_prog")  int idprog[]
-            ) {
-
+    @RequestMapping(value = "/cargarnotas.htm", method = RequestMethod.POST)
+    public ModelAndView cargarnotas(
+            @ModelAttribute("lista") @Validated Programaciones lista,
+            BindingResult result,
+            @RequestParam(value = "id_prog") int idprog[],
+            @RequestParam(value = "notafinal") String notas[]
+    ) {
         ModelAndView vista = new ModelAndView();
         System.out.println("lista");
-            //System.out.println(notas.length);
-            //System.out.println(idprog.length);
 
-       for (int i = 0; i < notas.length; i++) {
-            System.out.println(notas[i]);
-            System.out.println(idprog[i]);
-            //Programacion prognotas = ProgramacionDAO.getProgramacionByORMID(lista[i])    
-       }
-//        System.out.println("id:" + anuncio.getIdanuncio());
-        //AnunciosDAO.save(anuncio);
+        for (int i = 0; i < notas.length; i++) {
+            int idprg = idprog[i];
+            //Programacion newprog = null;
+            Programacion programacion = null;
+            try {
+                programacion = ProgramacionDAO.getProgramacionByORMID(idprg);
+                if (programacion != null) {
+                    programacion.setNotafinal(notas[i]);
+                    ProgramacionDAO.save(programacion);
+                }
+            } catch (PersistentException ex) {
+                Logger.getLogger(CargarNotasControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        vista.setViewName("cargarnotas");
         return vista;
     }
 

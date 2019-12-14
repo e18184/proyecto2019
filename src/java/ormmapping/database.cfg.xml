@@ -127,8 +127,8 @@
     <Dialect>org.hibernate.dialect.PostgreSQLDialect</Dialect>
     <DriverClass>org.postgresql.Driver</DriverClass>
     <URL>jdbc:postgresql://127.0.0.1:5432/taller1</URL>
-    <UserName>openpg</UserName>
-    <EncryptedPassword>4D4709B443BE19E57CF179DD86AEC59F</EncryptedPassword>
+    <UserName>postgres</UserName>
+    <EncryptedPassword>0BBBC9A71C687418C85C57366EC5C656</EncryptedPassword>
     <HostName>127.0.0.1</HostName>
     <PortNO>5432</PortNO>
     <DBName>taller1</DBName>

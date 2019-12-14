@@ -20,28 +20,29 @@
                                 <th>Nota</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <c:forEach items="${lista.getLista()}" var="prog" >
-                                <tr>
-                                    <td>   
-                                        <span ><c:out value="${prog.getNombre()}" ></c:out></span>
-                                        <span><c:out value="${prog.getAp()}"></c:out></span>
-                                        <span><c:out value="${prog.getAm()}"></c:out></span>
-                                        </td>
 
-                                        <td>    
-                                        <form:hidden value="${prog.getId_prog()}" path="id_prog"/>
-                                        <form:input id="input-autosize" value="${prog.getNotafinal()}" placeholder="Introduzca Nota" path="notafinal"></form:input>
-                                        </td>
-                                    </tr>
-                            </c:forEach>
-                        </tbody>
+                        <c:forEach items="${lista.getLista()}" var="prog" >
+                            <tr>
+                                <td>   
+                                    <span ><c:out value="${prog.getNombre()}" ></c:out></span>
+                                    <span><c:out value="${prog.getAp()}"></c:out></span>
+                                    <span><c:out value="${prog.getAm()}"></c:out></span>
+                                    </td>
+
+                                    <td>    
+                                    <form:hidden value="${prog.getId_prog()}" path="id_prog"/>
+                                    <form:input id="input-autosize" type="number" max="100" min="0" value="${prog.getNotafinal()}" path="notafinal"></form:input>
+                                    </td>
+                                </tr>
+                        </c:forEach>
+                        <c:set var="lista" value="l"/>
                     </table>
+
                     <br>
                     <br>
                     <div class="centrar">
-                        <form:button>Aceptar</form:button>
-                        <a href="listarmaterias.htm"><button type="button">Cancelar</button></a>
+                        <form:button type="submit" class="boton-aceptar">Aceptar</form:button>
+                            <a href="listarmaterias.htm"><button type="button" class="boton-aceptar">Cancelar</button></a>
                         </div>
                 </form:form>   
             </div>
