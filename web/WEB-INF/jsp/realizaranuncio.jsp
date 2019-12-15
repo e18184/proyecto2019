@@ -8,18 +8,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/docente.css" type="text/css"/>
         <title>Realizar Anuncio</title>
-        <script>
-            $(function fecha() {
-                $("#date").datepicker(); // give your date field an id or a date css class
-            });
-        </script>
     </head>
     <body>
         <h1 class="centrar-texto">Crear un Nuevo Anuncio!</h1>
         <div class="centrar">
             <div class="realizar-anuncio">
 
-                <form:form action="realizaranuncio.htm" method="POST" commandName="anuncio">
+                <form:form action="realizaranuncio.htm" method="POST" commandName="anuncio" enctype="multipart/form-data">
                     <form:input id="input-autosize" placeholder="Introduzca Titulo" path="titulo"></form:input>
                         <br>
                         <br>
@@ -27,11 +22,13 @@
                     <br>
                     <br>
                     <form:label path="fecha">Fecha de Emision</form:label>
-                        <c:set var="now" value="<%=new java.util.Date()%>" />
-                        <fmt:formatDate pattern="dd/MM/yyyy hh:mm" value="${now}" />
+                    <c:set var="now" value="<%=new java.util.Date()%>" />
+                    <fmt:formatDate var="fechasp" pattern="dd/MM/yyyy" value="${now}" />
+                    <form:input id="fecha-input" path="fecha" value="${fechasp}" disabled="true"></form:input>
+                    <form:hidden path="fecha" value="${fechasp}"/>
                         <br>
                         <br>
-                    <form:input  placeholder="ruta archivo" value="archivo.pdf" type="file" path="archivo"></form:input>
+                    <form:input type="file" path="archivo"></form:input>
                         <br>
                         <br>
                     <form:checkbox id="idanuncio" path="estado" value="${anuncio.getIdanuncio()}" label="Habilitado"

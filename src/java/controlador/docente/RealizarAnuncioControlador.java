@@ -5,24 +5,27 @@
  */
 package controlador.docente;
 
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpSession;
 import org.orm.PersistentException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import proyecto.Anuncios;
 import proyecto.Usuarios;
 import proyecto.UsuariosDAO;
 import proyecto.AnunciosDAO;
 
-/**
- *
- * @author alumno
- */
 @Controller
 @SessionAttributes({"miusuario"})
 @RequestMapping("realizaranuncio.htm")
@@ -38,34 +41,50 @@ public class RealizarAnuncioControlador {
 //      asigmos al atributo nombre un valor por defecto 
 //        anuncio.setMensaje("Introduzca Mensaje");
 //        anuncio.setEstado(true);
-//        anuncio.setFecha("121119");
+//       anuncio.setFecha(fecha.toString());
 //        anuncio.setArchivo("imagen.jpg");
         vista.addObject("anuncio", anuncio);
         return vista;
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView realizaranuncioPOST(@ModelAttribute("anuncio") Anuncios anuncio, @ModelAttribute("miusuario") Usuarios usuario) {
+    public ModelAndView realizaranuncioPOST(
+            @ModelAttribute("anuncio") @Validated Anuncios anuncio,
+            BindingResult result,
+            @ModelAttribute("miusuario") Usuarios usuario,
+            @RequestParam("archivo") CommonsMultipartFile file,
+            HttpSession session
+    ) throws Exception {
         ModelAndView vista = new ModelAndView();
-
         anuncio.setORM_Usuarios(usuario);
-//        System.out.println("id:" + anuncio.getIdanuncio());
-//        System.out.println("titulo:" + anuncio.getTitulo());
-//        System.out.println("estado:" + anuncio.getEstado());
-//        System.out.println("mensaje:" + anuncio.getMensaje());
-//        System.out.println("fecha:" + anuncio.getFecha());
-//        System.out.println("archivo:" + anuncio.getArchivo());
-//        System.out.println("usuarios:" + anuncio.getUsuarios());
-        try {
-            AnunciosDAO.save(anuncio);
-        } catch (PersistentException ex) {
-            Logger.getLogger(RealizarAnuncioControlador.class.getName()).log(Level.SEVERE, null, ex);
+        System.out.println(anuncio.getFecha());
+        if (!file.isEmpty()) {
+            String path = session.getServletContext().getRealPath("/images");
+            String filename = file.getOriginalFilename();
+            System.out.println("subir " + filename);
+            System.out.println("subir " + path);
+            try {
+                byte barr[] = file.getBytes();
+                BufferedOutputStream bout = new BufferedOutputStream(new FileOutputStream(path + "/" + filename));
+                bout.write(barr);
+                bout.flush();
+                bout.close();
+                anuncio.setArchivo(path + "/" + filename);
+                try {
+                    AnunciosDAO.save(anuncio);
+                } catch (PersistentException ex) {
+                    Logger.getLogger(RealizarAnuncioControlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            anuncio.setTitulo("");
+            anuncio.setMensaje("");
+            anuncio.setEstado(false);
+            anuncio.setFecha("");
+            anuncio.setArchivo("");
+            //return new ModelAndView("realizaranuncio", "filename", path + "/" + filename);
         }
-        anuncio.setTitulo("");
-        anuncio.setMensaje("");
-        anuncio.setEstado(false);
-        anuncio.setFecha("01/12/2019");
-        anuncio.setArchivo("documento.pdf");
         return vista;
     }
 }

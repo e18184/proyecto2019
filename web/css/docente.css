@@ -1,6 +1,9 @@
 *{
     font-family:"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+a{
+    text-decoration: none !important;
+}
 .tabla{
     width: 100%;
     border: 1px solid #ddd !important;
@@ -34,6 +37,14 @@ th, td {
     border-radius: 4px;
     margin-left: 10px;
     margin-right: 10px;
+}
+#fecha-input{
+    color: black;
+    font-size: medium;
+    background-color:transparent;
+    box-sizing: border-box;
+    border: 0px solid #ccc;
+    border-radius: 5px;
 }
 
 table{
