@@ -98,7 +98,7 @@ public class ObservacionesControlador {
         System.out.println("ob " + observ.getObservaciones());
         System.out.println("fecha " + observ.getFecha());
         System.out.println("archi " + observ.getArchivo());
-        ObservacionesDAO.save(observaciones);
+        ObservacionesDAO.save(observ);
 
 //        observaciones.setObservaciones("");
 //        observaciones.setFecha("");
