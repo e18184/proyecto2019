@@ -16,10 +16,10 @@
                 <tr>
                     <th>Sigla</th>
                     <th>Nombre de la Materia</th>
-                    <th>Gestion</th>
+                    <th>Gestión</th>
                     <th>Grupo</th>
                     <th>Registrar</th>
-                    <th>Ver Notas</th>
+                    <th>Notas</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,10 +39,10 @@
                                 <c:out value="${materia.getGrupo()}"></c:out>
                             </td>
                             <td> 
-                                <a href="<c:url value="cargarnotas.htm?id=${materia.getId_grupo()}"/>">Notas</a>
+                                <a href="<c:url value="cargarnotas.htm?id=${materia.getId_grupo()}"/>">Editar Notas</a>
                         </td>
                         <td> 
-                            <a href="<c:url value="visualizarnotas.htm?id=${materia.getId_grupo()}"/>">Ver</a>
+                            <a href="<c:url value="visualizarnotas.htm?id=${materia.getId_grupo()}"/>">Ver Notas</a>
                         </td> 
                     </tr>
                 </c:forEach>

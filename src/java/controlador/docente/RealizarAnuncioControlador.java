@@ -32,10 +32,15 @@ import proyecto.AnunciosDAO;
 public class RealizarAnuncioControlador {
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView realizaranuncio() {
-        ModelAndView vista = new ModelAndView();
-        vista.setViewName("realizaranuncio");
-        Anuncios anuncio = new Anuncios();
+    public ModelAndView realizaranuncio(
+            @ModelAttribute("miusuario") Usuarios usuario
+    ) {
+        ModelAndView vista = null;
+        if (usuario.getActivo()) {
+            vista = new ModelAndView("realizaranuncio");
+            vista.setViewName("realizaranuncio");
+            Anuncios anuncio = new Anuncios();
+
 //      asignamos al atributo titulo un valor por defecto
 //        anuncio.setTitulo("Introduzca Titulo");
 //      asigmos al atributo nombre un valor por defecto 
@@ -43,8 +48,13 @@ public class RealizarAnuncioControlador {
 //        anuncio.setEstado(true);
 //       anuncio.setFecha(fecha.toString());
 //        anuncio.setArchivo("imagen.jpg");
-        vista.addObject("anuncio", anuncio);
-        return vista;
+            vista.addObject("anuncio", anuncio);
+            return vista;
+        } else {
+            vista = new ModelAndView("bottom");
+            return vista;
+        }
+
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -58,11 +68,12 @@ public class RealizarAnuncioControlador {
         ModelAndView vista = new ModelAndView();
         anuncio.setORM_Usuarios(usuario);
         System.out.println(anuncio.getFecha());
+        System.out.println("subir " + anuncio.getTitulo());
         if (!file.isEmpty()) {
             String path = session.getServletContext().getRealPath("/images");
             String filename = file.getOriginalFilename();
             System.out.println("subir " + filename);
-            System.out.println("subir " + path);
+            System.out.println("subir " + file.getSize());
             try {
                 byte barr[] = file.getBytes();
                 BufferedOutputStream bout = new BufferedOutputStream(new FileOutputStream(path + "/" + filename));
@@ -70,21 +81,23 @@ public class RealizarAnuncioControlador {
                 bout.flush();
                 bout.close();
                 anuncio.setArchivo(path + "/" + filename);
-                try {
-                    AnunciosDAO.save(anuncio);
-                } catch (PersistentException ex) {
-                    Logger.getLogger(RealizarAnuncioControlador.class.getName()).log(Level.SEVERE, null, ex);
-                }
+
             } catch (Exception e) {
                 System.out.println(e);
             }
-            anuncio.setTitulo("");
-            anuncio.setMensaje("");
-            anuncio.setEstado(false);
-            anuncio.setFecha("");
-            anuncio.setArchivo("");
-            //return new ModelAndView("realizaranuncio", "filename", path + "/" + filename);
         }
+        try {
+            AnunciosDAO.save(anuncio);
+        } catch (PersistentException ex) {
+            Logger.getLogger(RealizarAnuncioControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        anuncio.setTitulo("");
+        anuncio.setMensaje("");
+        anuncio.setEstado(false);
+        anuncio.setFecha("");
+        anuncio.setArchivo("");
+        //return new ModelAndView("realizaranuncio", "filename", path + "/" + filename);
+
         return vista;
     }
 }

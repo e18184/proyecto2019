@@ -40,40 +40,60 @@ import proyecto.UsuariosDAO;
 public class CargarNotasControlador {
 
     @RequestMapping(value = "/cargarnotas.htm", method = RequestMethod.GET)
-    public ModelAndView cargarnotas(Model model, @RequestParam("id") int id_group, @ModelAttribute("miusuario") Usuarios usuario) {
-        ModelAndView vista = new ModelAndView();
-        //List<Imparte> listaimparte = null;
+    public ModelAndView cargarnotas(
+            Model model,
+            @RequestParam("id") int id_group,
+            @ModelAttribute("miusuario") Usuarios usuario
+    ) {
+        ModelAndView vista = null;
+        if (usuario.getActivo()) {
+            if (!usuario.getDocentes().getAuxiliar()) {
+                vista = new ModelAndView("cargarnotas");
+                //List<Imparte> listaimparte = null;
 
-        try {
-            Grupo grupo = GrupoDAO.getGrupoByORMID(id_group);
-            List<Programaciones> listainterna = new ArrayList<Programaciones>();
-            Programacion[] estprog = grupo.programacion.toArray();
+                try {
+                    Grupo grupo = GrupoDAO.getGrupoByORMID(id_group);
+                    List<Programaciones> listainterna = new ArrayList<Programaciones>();
+                    Programacion[] estprog = grupo.programacion.toArray();
 
-            for (int i = 0; i < estprog.length; i++) {
-                Programaciones prog = new Programaciones();
-                prog.setId_prog(estprog[i].getIdprog());
-                prog.setId_grupo(estprog[i].getIdcarr().getId_grupo());
-                prog.setNotafinal(estprog[i].getNotafinal());
-                prog.setNombre(UsuariosDAO.getUsuariosByORMID(estprog[i].getIdusu().getIdusuId()).getNombre());
-                prog.setAp(UsuariosDAO.getUsuariosByORMID(estprog[i].getIdusu().getIdusuId()).getApellido1());
-                prog.setAm(UsuariosDAO.getUsuariosByORMID(estprog[i].getIdusu().getIdusuId()).getApellido2());
-                prog.setId_univ(UsuariosDAO.getUsuariosByORMID(estprog[i].getIdusu().getIdusuId()).getIdusu());
-                //System.out.println("prog:  " + estprog[i].getIdusu().getIdusuId());
-                //GrupoDAO.getGrupoByORMID(dictadoc[i].getIdcarr().getId_grupo()).getSigla();
+                    for (int i = 0; i < estprog.length; i++) {
+                        Programaciones prog = new Programaciones();
+                        prog.setId_prog(estprog[i].getIdprog());
+                        prog.setId_grupo(estprog[i].getIdcarr().getId_grupo());
+                        prog.setNombre(UsuariosDAO.getUsuariosByORMID(estprog[i].getIdusu().getIdusuId()).getNombre());
+                        prog.setAp(UsuariosDAO.getUsuariosByORMID(estprog[i].getIdusu().getIdusuId()).getApellido1());
+                        prog.setAm(UsuariosDAO.getUsuariosByORMID(estprog[i].getIdusu().getIdusuId()).getApellido2());
+                        prog.setId_univ(UsuariosDAO.getUsuariosByORMID(estprog[i].getIdusu().getIdusuId()).getIdusu());
+                        if (estprog[i].getNotafinal() != null) {
+                            prog.setNotafinal(estprog[i].getNotafinal());
+                        } else {
+                            prog.setNotafinal(Integer.toString(0));
+                        }
+                        //System.out.println("prog:  " + estprog[i].getIdusu().getIdusuId());
+                        //GrupoDAO.getGrupoByORMID(dictadoc[i].getIdcarr().getId_grupo()).getSigla();
 
-                listainterna.add(prog);
+                        listainterna.add(prog);
+                    }
+                    Programaciones nuevoprog = new Programaciones();
+                    nuevoprog.setLista(listainterna);
+
+                    model.addAttribute("lista", nuevoprog);
+
+                    //return vista;
+                } catch (PersistentException ex) {
+                    Logger.getLogger(ListarMateriasControlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                return vista;
+
+            } else {
+                vista = new ModelAndView("bottom");
+                return vista;
             }
-            Programaciones nuevoprog = new Programaciones();
-            nuevoprog.setLista(listainterna);
-
-            model.addAttribute("lista", nuevoprog);
-
+        } else {
+            vista = new ModelAndView("bottom");
             return vista;
-        } catch (PersistentException ex) {
-            Logger.getLogger(ListarMateriasControlador.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return vista;
     }
 
     @RequestMapping(value = "/cargarnotas.htm", method = RequestMethod.POST)
@@ -81,9 +101,9 @@ public class CargarNotasControlador {
             @ModelAttribute("lista") @Validated Programaciones lista,
             BindingResult result,
             @RequestParam(value = "id_prog") int idprog[],
-            @RequestParam(value = "notafinal") String notas[]
+            @RequestParam(value = "notafinal") int notas[]
     ) {
-        ModelAndView vista = new ModelAndView();
+        ModelAndView vista = new ModelAndView("cargarnotas");
         System.out.println("lista");
 
         for (int i = 0; i < notas.length; i++) {
@@ -93,14 +113,16 @@ public class CargarNotasControlador {
             try {
                 programacion = ProgramacionDAO.getProgramacionByORMID(idprg);
                 if (programacion != null) {
-                    programacion.setNotafinal(notas[i]);
-                    ProgramacionDAO.save(programacion);
+                    if (notas[i] <= 100 && notas[i] >= 0) {
+                    System.out.println(notas[i]);
+                        programacion.setNotafinal(Integer.toString(notas[i]));
+                        ProgramacionDAO.save(programacion);
+                    }
                 }
             } catch (PersistentException ex) {
                 Logger.getLogger(CargarNotasControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        vista.setViewName("cargarnotas");
         return vista;
     }
 

@@ -37,6 +37,12 @@
                         </c:forEach>
                     </tbody>
                 </table>
+
+                <br>
+                <br>
+                <div class="centrar">
+                    <a href="listarmaterias.htm"><button type="button" class="boton boton-cancelar">Volver</button></a>
+                </div>
             </div>
         </div>
     </body>

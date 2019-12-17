@@ -62,7 +62,7 @@
                     <tr>
                         <td> 
                     <form:form method="POST" id="fmiusuario"  name="fmiusuario" commandName="fmiusuario" >
-                        <form:select id="idusu" path="idusu"  onchange="myFunc()"> 
+                        <form:select id="idusu" path="idusu" class="roles" onchange="myFunc()"> 
                             <c:forEach  var="dato2" items="${misusuarios}" >
                                 <option value="${dato2.key}" ${dato2.key == selecionado?"selected='selected'":""}>${dato2.value}</option>
                             </c:forEach>

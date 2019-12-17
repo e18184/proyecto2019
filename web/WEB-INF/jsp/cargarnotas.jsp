@@ -41,8 +41,8 @@
                     <br>
                     <br>
                     <div class="centrar">
-                        <form:button type="submit" class="boton-aceptar">Aceptar</form:button>
-                            <a href="listarmaterias.htm"><button type="button" class="boton-aceptar">Cancelar</button></a>
+                        <form:button type="submit" class="boton boton-aceptar">Aceptar</form:button>
+                            <a href="listarmaterias.htm"><button type="button" class="boton boton-cancelar">Cancelar</button></a>
                         </div>
                 </form:form>   
             </div>

@@ -40,19 +40,21 @@ public class ListarMateriasControlador {
             List<Imparte> listainterna = new ArrayList<Imparte>();
             Dicta[] dictadoc = usuario.getDocentes().dicta.toArray();
             for (int i = 0; i < dictadoc.length; i++) {
-                Imparte impart = new Imparte();
-                impart.setGestion(dictadoc[i].getGestion());
-                impart.setMateria(GrupoDAO.getGrupoByORMID(dictadoc[i].getIdcarr().getId_grupo()).getNombre());
-                impart.setSigla(GrupoDAO.getGrupoByORMID(dictadoc[i].getIdcarr().getId_grupo()).getSigla());
-                impart.setGrupo(GrupoDAO.getGrupoByORMID(dictadoc[i].getIdcarr().getId_grupo()).getGrupo());
+                if (dictadoc[i].getEstado()) {
+                    Imparte impart = new Imparte();
+                    impart.setGestion(dictadoc[i].getGestion());
+                    impart.setMateria(GrupoDAO.getGrupoByORMID(dictadoc[i].getIdcarr().getId_grupo()).getNombre());
+                    impart.setSigla(GrupoDAO.getGrupoByORMID(dictadoc[i].getIdcarr().getId_grupo()).getSigla());
+                    impart.setGrupo(GrupoDAO.getGrupoByORMID(dictadoc[i].getIdcarr().getId_grupo()).getGrupo());
 
-                impart.setId_dicta(dictadoc[i].getIddicta());
-                impart.setId_grupo(GrupoDAO.getGrupoByORMID(dictadoc[i].getIdcarr().getId_grupo()).getId_grupo());
-                impart.setId_usu(usuario.getIdusu());
-                //System.out.println(GrupoDAO.getGrupoByORMID(dictadoc[i].getIdcarr().getId_grupo()).getId_grupo());
-                //GrupoDAO.getGrupoByORMID(dictadoc[i].getIdcarr().getId_grupo()).getSigla();
+                    impart.setId_dicta(dictadoc[i].getIddicta());
+                    impart.setId_grupo(GrupoDAO.getGrupoByORMID(dictadoc[i].getIdcarr().getId_grupo()).getId_grupo());
+                    impart.setId_usu(usuario.getIdusu());
+                    //System.out.println(GrupoDAO.getGrupoByORMID(dictadoc[i].getIdcarr().getId_grupo()).getId_grupo());
+                    //GrupoDAO.getGrupoByORMID(dictadoc[i].getIdcarr().getId_grupo()).getSigla();
 
-                listainterna.add(impart);
+                    listainterna.add(impart);
+                }
             }
             Imparte nuevoimparte = new Imparte();
             nuevoimparte.setLista(listainterna);

@@ -4,6 +4,12 @@
     text-transform:uppercase;
     font-family:"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+.roles{
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    border: 0px;
+}
 /*#footer{
     width: 100%;
     height: 50px;

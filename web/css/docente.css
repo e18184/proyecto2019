@@ -1,5 +1,6 @@
 *{
     font-family:"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 }
 a{
     text-decoration: none !important;
@@ -7,6 +8,7 @@ a{
 .tabla{
     width: 100%;
     border: 1px solid #ddd !important;
+    text-transform:uppercase;
 }
 th, td {
     border: 1px solid #ddd !important;
@@ -20,7 +22,7 @@ th, td {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-.boton-aceptar{
+.boton{
     padding: 6px 12px;
     margin-bottom: 0;
     font-size: 14px;
@@ -37,6 +39,15 @@ th, td {
     border-radius: 4px;
     margin-left: 10px;
     margin-right: 10px;
+}
+.boton-aceptar{
+    background-color: #7C7BAD;
+    border: 1px solid #dee2e6;
+    color: white;
+}
+.boton-cancelar{
+    background-color: white;
+    border: 1px solid #dee2e6;
 }
 #fecha-input{
     color: black;
@@ -61,13 +72,13 @@ table{
 }
 .realizar-anuncio{
     display: inline-block;
-    max-width: 90%;
+    min-width: 90%;
     padding: 20px;
 
 
 }
 #areatexto{
-    width: 100% !important;
+    min-width: 100% !important;
     height: 300px;
     padding: 10px 15px;
     box-sizing: border-box;
@@ -80,4 +91,15 @@ table{
     display: inline-block;
     max-width: 90%;
     padding: 20px;
+}
+
+input[type="file"]{
+    padding: 6px 0px;
+    cursor: pointer;
+}
+input[type="checkbox"].css-checkbox {
+    clip: rect(0 0 0 0); 
+    padding:0; 
+    border:0;
+
 }
