@@ -26,13 +26,13 @@
                     <form:input class="boton-file" type="file" path="archivo" accept="application/*"></form:input>
                         <br>
                         <br>
-                    <form:textarea id="areatexto" placeholder="Introduzca Mensaje" path="observacion" rows="5" />
+                    <form:textarea id="areatexto" placeholder="Introduzca Mensaje" path="observacion" rows="5" required="required"/>
 
                     <br>
                     <br>
                     <form:label path="lista">Etapas</form:label>
                     <c:forEach items="${observaciones.getLista()}" var="et">    
-                    <form:radiobutton checked="${cuntry.lang == 'FR' ? 'checked':''}" path="idetapa" value="${et.getID()}" label="${et.getNombre()}"/>
+                    <form:radiobutton checked="${cuntry.lang == 'FR' ? 'checked':''}" path="idetapa" value="${et.getID()}" label="${et.getNombre()}" required="required"/>
                     </c:forEach>
                     <br>
                     <br>
