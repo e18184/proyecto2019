@@ -5,7 +5,7 @@ License Type: Evaluation
 -->
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="proyecto.Menus" table="`menus`" schema="gestion2019" lazy="false">
+	<class name="proyecto.Menus" table="`menus`" schema="gestion20191" lazy="false">
 		<meta attribute="class-description">
 			Contiene los men&#250;s definidos en el sistema
 		</meta>
@@ -29,12 +29,12 @@ License Type: Evaluation
 				descripcion del menu
 			</meta>
 		</property>
-		<set name="ORM_Idrol" table="`rolme`" schema="gestion2019" lazy="true" cascade="save-update,lock" inverse="true">
+		<set name="ORM_Idrol" table="`rolme`" schema="gestion20191" lazy="true" cascade="save-update,lock" inverse="true">
 			<key column="`idmenu`" not-null="true"/>
 			<many-to-many column="`idrol`" class="proyecto.Roles">
 			</many-to-many>
 		</set>
-		<set name="ORM_Idpro" table="`mepro`" schema="gestion2019" lazy="true" cascade="save-update,lock">
+		<set name="ORM_Idpro" table="`mepro`" schema="gestion20191" lazy="true" cascade="save-update,lock">
 			<key column="`idmenu`" not-null="true"/>
 			<many-to-many column="`idpro`" class="proyecto.Procesos">
 			</many-to-many>

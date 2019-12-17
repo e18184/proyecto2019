@@ -5,7 +5,7 @@ License Type: Evaluation
 -->
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="proyecto.Programacion" table="`programacion`" schema="gestion2019" lazy="false">
+	<class name="proyecto.Programacion" table="`programacion`" schema="gestion20191" lazy="false">
 		<meta attribute="class-description">
 			Asignaci&#243;n de materias a estudiantes
 		</meta>

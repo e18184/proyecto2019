@@ -5,7 +5,7 @@ License Type: Evaluation
 -->
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="proyecto.Procesos" table="`procesos`" schema="gestion2019" lazy="false">
+	<class name="proyecto.Procesos" table="`procesos`" schema="gestion20191" lazy="false">
 		<meta attribute="class-description">
 			Contiene las URLs relativas de todos los procesos u operaciones implementadas, a los que los usuarios acceden desde el navegador.
 		</meta>
@@ -29,7 +29,7 @@ License Type: Evaluation
 				Descripci&#243;n del proceso u operaci&#243;n
 			</meta>
 		</property>
-		<set name="ORM_Idmenu" table="`mepro`" schema="gestion2019" lazy="true" cascade="save-update,lock" inverse="true">
+		<set name="ORM_Idmenu" table="`mepro`" schema="gestion20191" lazy="true" cascade="save-update,lock" inverse="true">
 			<key column="`idpro`" not-null="true"/>
 			<many-to-many column="`idmenu`" class="proyecto.Menus">
 			</many-to-many>

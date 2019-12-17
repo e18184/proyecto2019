@@ -5,14 +5,14 @@ License Type: Evaluation
 -->
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="proyecto.Grupo" table="`grupo`" schema="gestion2019" lazy="false">
+	<class name="proyecto.Grupo" table="`grupo`" schema="gestion20191" lazy="false">
 		<meta attribute="class-description">
 			Contiene los grupo que tienen en el sistema
 		</meta>
 		<id name="id_grupo" column="`id_grupo`" type="integer" unsaved-value="0">
 			<generator class="native">
 				<param name="sequence">gestion2019.carreras_idcarr_seq</param>
-				<param name="schema">gestion2019</param>
+				<param name="schema">gestion20191</param>
 			</generator>
 		</id>
 		<many-to-one name="idcarr" cascade="lock" column="`idcarr`" class="proyecto.Carreras" not-null="true" lazy="proxy" access="field">

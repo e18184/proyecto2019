@@ -5,7 +5,7 @@ License Type: Evaluation
 -->
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="proyecto.Roles" table="`roles`" schema="gestion2019" lazy="false">
+	<class name="proyecto.Roles" table="`roles`" schema="gestion20191" lazy="false">
 		<meta attribute="class-description">
 			Contiene los roles definidos en el sistema
 		</meta>
@@ -24,12 +24,12 @@ License Type: Evaluation
 				True, vigente. False, dado de baja
 			</meta>
 		</property>
-		<set name="ORM_Idusu" table="`usurol`" schema="gestion2019" lazy="true" cascade="save-update,lock" inverse="true">
+		<set name="ORM_Idusu" table="`usurol`" schema="gestion20191" lazy="true" cascade="save-update,lock" inverse="true">
 			<key column="`idrol`" not-null="true"/>
 			<many-to-many column="`idusu`" class="proyecto.Usuarios">
 			</many-to-many>
 		</set>
-		<set name="ORM_Idmenu" table="`rolme`" schema="gestion2019" lazy="true" cascade="save-update,lock">
+		<set name="ORM_Idmenu" table="`rolme`" schema="gestion20191" lazy="true" cascade="save-update,lock">
 			<key column="`idrol`" not-null="true"/>
 			<many-to-many column="`idmenu`" class="proyecto.Menus">
 			</many-to-many>

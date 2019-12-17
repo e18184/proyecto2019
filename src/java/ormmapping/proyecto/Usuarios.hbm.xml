@@ -5,7 +5,7 @@ License Type: Evaluation
 -->
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="proyecto.Usuarios" table="`usuarios`" schema="gestion2019" lazy="false">
+	<class name="proyecto.Usuarios" table="`usuarios`" schema="gestion20191" lazy="false">
 		<meta attribute="class-description">
 			Contiene los datos de los usuarios del sistema
 		</meta>
@@ -64,7 +64,7 @@ License Type: Evaluation
 				True, vigente. False, dado de baja
 			</meta>
 		</property>
-		<set name="ORM_Idrol" table="`usurol`" schema="gestion2019" lazy="true" cascade="save-update,lock">
+		<set name="ORM_Idrol" table="`usurol`" schema="gestion20191" lazy="true" cascade="save-update,lock">
 			<key column="`idusu`" not-null="true"/>
 			<many-to-many column="`idrol`" class="proyecto.Roles">
 			</many-to-many>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Model quotesql="2" tablecharset="" mysql_version="504" mssql_version="2005" derby_version="106" ingres_version="9">
-  <Entity name="carreras" schema="gestion2019" Unlogged="false" PKConstraintName="carreras_pkey" PKClustered="0">
+  <Entity name="carreras" schema="gestion20191" Unlogged="false" PKConstraintName="carreras_pkey" PKClustered="0">
     <Column name="idcarr">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -67,7 +67,7 @@
     </Column>
     <Comment>Contiene las carreras registradas en el sistema</Comment>
   </Entity>
-  <Entity name="datos" schema="gestion2019" Unlogged="false" PKConstraintName="datos_pkey" PKClustered="0">
+  <Entity name="datos" schema="gestion20191" Unlogged="false" PKConstraintName="datos_pkey" PKClustered="0">
     <Column name="idusu">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
@@ -119,7 +119,7 @@
     </Column>
     <Comment>Login y contraseña de cada usuario registrado</Comment>
   </Entity>
-  <Entity name="dicta" schema="gestion2019" Unlogged="false" PKConstraintName="dicta_pkey" PKClustered="0">
+  <Entity name="dicta" schema="gestion20191" Unlogged="false" PKConstraintName="dicta_pkey" PKClustered="0">
     <Column name="iddicta">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -209,7 +209,7 @@
     </Column>
     <Comment>Asignación de materias a docentes</Comment>
   </Entity>
-  <Entity name="docentes" schema="gestion2019" Unlogged="false" PKConstraintName="docentes_pkey" PKClustered="0">
+  <Entity name="docentes" schema="gestion20191" Unlogged="false" PKConstraintName="docentes_pkey" PKClustered="0">
     <Column name="idusu">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
@@ -237,7 +237,7 @@
     </Column>
     <Comment>Tabla de los docentes</Comment>
   </Entity>
-  <Entity name="grupo" schema="gestion2019" Unlogged="false" PKConstraintName="materias_pkey" PKClustered="0">
+  <Entity name="grupo" schema="gestion20191" Unlogged="false" PKConstraintName="materias_pkey" PKClustered="0">
     <Column name="id_grupo">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -348,7 +348,7 @@
     </Column>
     <Comment>Contiene los grupo que tienen en el sistema</Comment>
   </Entity>
-  <Entity name="menus" schema="gestion2019" Unlogged="false" PKConstraintName="menus_pkey" PKClustered="0">
+  <Entity name="menus" schema="gestion20191" Unlogged="false" PKConstraintName="menus_pkey" PKClustered="0">
     <Column name="idmenu">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -401,7 +401,7 @@
     </Column>
     <Comment>Contiene los menús definidos en el sistema</Comment>
   </Entity>
-  <Entity name="mepro" schema="gestion2019" Unlogged="false" PKConstraintName="mepro_pkey" PKClustered="0">
+  <Entity name="mepro" schema="gestion20191" Unlogged="false" PKConstraintName="mepro_pkey" PKClustered="0">
     <Column name="idmenu">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
@@ -430,7 +430,7 @@
     </Column>
     <Comment>Relaciona las tablas Menus con Procesos</Comment>
   </Entity>
-  <Entity name="procesos" schema="gestion2019" Unlogged="false" PKConstraintName="procesos_pkey" PKClustered="0">
+  <Entity name="procesos" schema="gestion20191" Unlogged="false" PKConstraintName="procesos_pkey" PKClustered="0">
     <Column name="idpro">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -484,7 +484,7 @@
     </Column>
     <Comment>Contiene las URLs relativas de todos los procesos u operaciones implementadas, a los que los usuarios acceden desde el navegador.</Comment>
   </Entity>
-  <Entity name="programacion" schema="gestion2019" Unlogged="false" PKConstraintName="programacion_pkey" PKClustered="0">
+  <Entity name="programacion" schema="gestion20191" Unlogged="false" PKConstraintName="programacion_pkey" PKClustered="0">
     <Column name="idprog">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -561,7 +561,7 @@
     </Column>
     <Comment>Asignación de materias a estudiantes</Comment>
   </Entity>
-  <Entity name="roles" schema="gestion2019" Unlogged="false" PKConstraintName="roles_pkey" PKClustered="0">
+  <Entity name="roles" schema="gestion20191" Unlogged="false" PKConstraintName="roles_pkey" PKClustered="0">
     <Column name="idrol">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -603,7 +603,7 @@
     </Column>
     <Comment>Contiene los roles definidos en el sistema</Comment>
   </Entity>
-  <Entity name="rolme" schema="gestion2019" Unlogged="false" PKConstraintName="rolme_pkey" PKClustered="0">
+  <Entity name="rolme" schema="gestion20191" Unlogged="false" PKConstraintName="rolme_pkey" PKClustered="0">
     <Column name="idrol">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
@@ -632,7 +632,7 @@
     </Column>
     <Comment>Relaciona las tablas Menus con Procesos</Comment>
   </Entity>
-  <Entity name="universitarios" schema="gestion2019" Unlogged="false" PKConstraintName="universitarios_pkey" PKClustered="0">
+  <Entity name="universitarios" schema="gestion20191" Unlogged="false" PKConstraintName="universitarios_pkey" PKClustered="0">
     <Column name="idusu">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
@@ -660,7 +660,7 @@
     </Column>
     <Comment>Tabla de los Universitarios</Comment>
   </Entity>
-  <Entity name="usuarios" schema="gestion2019" Unlogged="false" PKConstraintName="usuarios_pkey" PKClustered="0">
+  <Entity name="usuarios" schema="gestion20191" Unlogged="false" PKConstraintName="usuarios_pkey" PKClustered="0">
     <Column name="idusu">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -798,7 +798,7 @@
     </Column>
     <Comment>Contiene los datos de los usuarios del sistema</Comment>
   </Entity>
-  <Entity name="usurol" schema="gestion2019" Unlogged="false" PKConstraintName="usurol_pkey" PKClustered="0">
+  <Entity name="usurol" schema="gestion20191" Unlogged="false" PKConstraintName="usurol_pkey" PKClustered="0">
     <Column name="idusu">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
@@ -827,7 +827,7 @@
     </Column>
     <Comment>Relaciona las tablas Usuarios con Roles</Comment>
   </Entity>
-  <Entity name="Proyectos" schema="gestion2019" Unlogged="false" PKClustered="0">
+  <Entity name="Proyectos" schema="gestion20191" Unlogged="false" PKClustered="0">
     <Column name="ID">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -954,7 +954,7 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <Entity name="Tribunal" schema="gestion2019" Unlogged="false" PKClustered="0">
+  <Entity name="Tribunal" schema="gestion20191" Unlogged="false" PKClustered="0">
     <Column name="ID">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -1002,7 +1002,7 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <Entity name="Observaciones" schema="gestion2019" Unlogged="false" PKClustered="0">
+  <Entity name="Observaciones" schema="gestion20191" Unlogged="false" PKClustered="0">
     <Column name="ID">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -1072,7 +1072,7 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <Entity name="Etapas" schema="gestion2019" Unlogged="false" PKClustered="0">
+  <Entity name="Etapas" schema="gestion20191" Unlogged="false" PKClustered="0">
     <Column name="ID">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -1096,7 +1096,7 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <Entity name="Area" schema="gestion2019" Unlogged="false" PKClustered="0">
+  <Entity name="Area" schema="gestion20191" Unlogged="false" PKClustered="0">
     <Column name="ID">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -1120,7 +1120,7 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <Entity name="Anuncios" schema="gestion2019" Unlogged="false" PKClustered="0">
+  <Entity name="Anuncios" schema="gestion20191" Unlogged="false" PKClustered="0">
     <Column name="ID">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -1200,25 +1200,11 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <View name="v_usuariorol" CreateStmt="create view gestion2019.v_usuariorol as  SELECT row_number() OVER () AS id,
-    u.idusu,
-    u.nombre AS unombre,
-    u.apellido1,
-    u.apellido2,
-    r.nombre,
-    d.login,
-    d.password,
-    d.activo
-   FROM (gestion2019.usuarios u
-     JOIN gestion2019.datos d ON ((u.idusu = d.idusu))),
-    gestion2019.usurol ur,
-    gestion2019.roles r
-  WHERE ((u.idusu = ur.idusu) AND (ur.idrol = r.idrol));" schema="gestion2019" Materialized="false"/>
   <ForeignKey name="fkdatos267216">
     <ReferenceTable>datos</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>usuarios</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <OnUpdate>No action</OnUpdate>
     <OnDelete>No action</OnDelete>
     <Columns>
@@ -1230,9 +1216,9 @@
   </ForeignKey>
   <ForeignKey name="fkdicta698426">
     <ReferenceTable>dicta</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>docentes</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <OnUpdate>No action</OnUpdate>
     <OnDelete>No action</OnDelete>
     <Columns>
@@ -1244,9 +1230,9 @@
   </ForeignKey>
   <ForeignKey name="fkdicta501654">
     <ReferenceTable>dicta</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>grupo</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <OnUpdate>No action</OnUpdate>
     <OnDelete>No action</OnDelete>
     <Columns>
@@ -1258,9 +1244,9 @@
   </ForeignKey>
   <ForeignKey name="fkdocentes899557">
     <ReferenceTable>docentes</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>usuarios</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <OnUpdate>No action</OnUpdate>
     <OnDelete>No action</OnDelete>
     <Columns>
@@ -1272,9 +1258,9 @@
   </ForeignKey>
   <ForeignKey name="fkmaterias750405">
     <ReferenceTable>grupo</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>carreras</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <OnUpdate>No action</OnUpdate>
     <OnDelete>No action</OnDelete>
     <Columns>
@@ -1286,9 +1272,9 @@
   </ForeignKey>
   <ForeignKey name="fkmepro122433">
     <ReferenceTable>mepro</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>menus</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <OnUpdate>No action</OnUpdate>
     <OnDelete>No action</OnDelete>
     <Columns>
@@ -1300,9 +1286,9 @@
   </ForeignKey>
   <ForeignKey name="fkmepro242844">
     <ReferenceTable>mepro</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>procesos</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <OnUpdate>No action</OnUpdate>
     <OnDelete>No action</OnDelete>
     <Columns>
@@ -1314,9 +1300,9 @@
   </ForeignKey>
   <ForeignKey name="fkprogramaci263409">
     <ReferenceTable>programacion</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>universitarios</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <OnUpdate>No action</OnUpdate>
     <OnDelete>No action</OnDelete>
     <Columns>
@@ -1328,9 +1314,9 @@
   </ForeignKey>
   <ForeignKey name="fkprogramaci480900">
     <ReferenceTable>programacion</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>grupo</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <OnUpdate>No action</OnUpdate>
     <OnDelete>No action</OnDelete>
     <Columns>
@@ -1342,9 +1328,9 @@
   </ForeignKey>
   <ForeignKey name="fkrolme514925">
     <ReferenceTable>rolme</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>roles</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <OnUpdate>No action</OnUpdate>
     <OnDelete>No action</OnDelete>
     <Columns>
@@ -1356,9 +1342,9 @@
   </ForeignKey>
   <ForeignKey name="fkrolme33944">
     <ReferenceTable>rolme</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>menus</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <OnUpdate>No action</OnUpdate>
     <OnDelete>No action</OnDelete>
     <Columns>
@@ -1370,9 +1356,9 @@
   </ForeignKey>
   <ForeignKey name="fkuniversita443786">
     <ReferenceTable>universitarios</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>usuarios</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <OnUpdate>No action</OnUpdate>
     <OnDelete>No action</OnDelete>
     <Columns>
@@ -1384,9 +1370,9 @@
   </ForeignKey>
   <ForeignKey name="fkusurol643637">
     <ReferenceTable>usurol</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>usuarios</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <OnUpdate>No action</OnUpdate>
     <OnDelete>No action</OnDelete>
     <Columns>
@@ -1398,9 +1384,9 @@
   </ForeignKey>
   <ForeignKey name="fkusurol734545">
     <ReferenceTable>usurol</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>roles</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <OnUpdate>No action</OnUpdate>
     <OnDelete>No action</OnDelete>
     <Columns>
@@ -1412,9 +1398,9 @@
   </ForeignKey>
   <ForeignKey name="obs">
     <ReferenceTable>Observaciones</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>Tribunal</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <Columns>
       <Column>TribunalID</Column>
     </Columns>
@@ -1424,9 +1410,9 @@
   </ForeignKey>
   <ForeignKey name="FKObservacio695271">
     <ReferenceTable>Observaciones</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>Etapas</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <Columns>
       <Column>EtapasID</Column>
     </Columns>
@@ -1436,9 +1422,9 @@
   </ForeignKey>
   <ForeignKey name="FKProyectos61587">
     <ReferenceTable>Proyectos</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>Area</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <Columns>
       <Column>AreaID</Column>
     </Columns>
@@ -1448,9 +1434,9 @@
   </ForeignKey>
   <ForeignKey name="programacionproyectos">
     <ReferenceTable>Proyectos</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>programacion</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <Columns>
       <Column>programacionidprog</Column>
     </Columns>
@@ -1460,9 +1446,9 @@
   </ForeignKey>
   <ForeignKey name="tutor">
     <ReferenceTable>Proyectos</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>docentes</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <Columns>
       <Column>docentesidusu</Column>
     </Columns>
@@ -1472,9 +1458,9 @@
   </ForeignKey>
   <ForeignKey name="Tribunal">
     <ReferenceTable>Tribunal</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>Proyectos</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <Columns>
       <Column>ProyectosID</Column>
     </Columns>
@@ -1484,9 +1470,9 @@
   </ForeignKey>
   <ForeignKey name="Tribunal2">
     <ReferenceTable>Tribunal</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>docentes</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <Columns>
       <Column>docentesidusu</Column>
     </Columns>
@@ -1496,9 +1482,9 @@
   </ForeignKey>
   <ForeignKey name="FKAnuncios346335">
     <ReferenceTable>Anuncios</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>usuarios</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <Columns>
       <Column>usuariosidusu</Column>
     </Columns>
@@ -1508,9 +1494,9 @@
   </ForeignKey>
   <ForeignKey name="programa">
     <ReferenceTable>Proyectos</ReferenceTable>
-    <ReferenceSchema>gestion2019</ReferenceSchema>
+    <ReferenceSchema>gestion20191</ReferenceSchema>
     <ReferencedTable>programacion</ReferencedTable>
-    <ReferencedSchema>gestion2019</ReferencedSchema>
+    <ReferencedSchema>gestion20191</ReferencedSchema>
     <Columns>
       <Column>programacionidprog3</Column>
     </Columns>
