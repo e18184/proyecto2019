@@ -47,7 +47,7 @@ public class Observaciones implements Serializable {
 	
 	private String observaciones;
 	
-	public void setID(int value) {
+	private void setID(int value) {
 		this.ID = value;
 	}
 	

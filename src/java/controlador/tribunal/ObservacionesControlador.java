@@ -67,7 +67,7 @@ public class ObservacionesControlador {
        // System.out.println(usuario.getDocentes().getIdusuId());
         observ.setTribunal(TribunalDAO.getTribunalByORMID(usuario.getDocentes().getIdusuId()));
         observ.setEtapas(EtapasDAO.getEtapasByORMID(observacion.getIdetapa()));
-        observ.setID(id);
+        //observ.setID(1);
         //System.out.println("etapas   "+observacion.getIdetapa());
         observ.setObservaciones(observacion.getObservacion());
         observ.setFecha(observacion.getFecha());
@@ -98,6 +98,7 @@ public class ObservacionesControlador {
         System.out.println("ob " + observ.getObservaciones());
         System.out.println("fecha " + observ.getFecha());
         System.out.println("archi " + observ.getArchivo());
+        
         ObservacionesDAO.save(observ);
 
 //        observaciones.setObservaciones("");
