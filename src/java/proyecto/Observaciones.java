@@ -47,7 +47,7 @@ public class Observaciones implements Serializable {
 	
 	private String observaciones;
 	
-	private void setID(int value) {
+	public void setID(int value) {
 		this.ID = value;
 	}
 	
@@ -134,5 +134,9 @@ public class Observaciones implements Serializable {
 	public String toString() {
 		return String.valueOf(getID());
 	}
+
+    public void setORM_Usuarios(Usuarios usuario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 	
 }

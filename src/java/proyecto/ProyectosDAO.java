@@ -331,18 +331,14 @@ public class ProyectosDAO {
 				proyectos.getArea().proyectoses.remove(proyectos);
 			}
 			
-			if (proyectos.getProgramacionidprog() != null) {
-				proyectos.getProgramacionidprog().proyectos.remove(proyectos);
+			if (proyectos.getDocentesidusu() != null) {
+				proyectos.getDocentesidusu().proyectos.remove(proyectos);
 			}
 			
 			proyecto.Tribunal[] lTribunalss = proyectos.tribunals.toArray();
 			for(int i = 0; i < lTribunalss.length; i++) {
 				lTribunalss[i].setProyectos(null);
 			}
-			if (proyectos.getDocentesidusu() != null) {
-				proyectos.getDocentesidusu().proyectos.remove(proyectos);
-			}
-			
 			return delete(proyectos);
 		}
 		catch(Exception e) {
@@ -361,18 +357,14 @@ public class ProyectosDAO {
 				proyectos.getArea().proyectoses.remove(proyectos);
 			}
 			
-			if (proyectos.getProgramacionidprog() != null) {
-				proyectos.getProgramacionidprog().proyectos.remove(proyectos);
+			if (proyectos.getDocentesidusu() != null) {
+				proyectos.getDocentesidusu().proyectos.remove(proyectos);
 			}
 			
 			proyecto.Tribunal[] lTribunalss = proyectos.tribunals.toArray();
 			for(int i = 0; i < lTribunalss.length; i++) {
 				lTribunalss[i].setProyectos(null);
 			}
-			if (proyectos.getDocentesidusu() != null) {
-				proyectos.getDocentesidusu().proyectos.remove(proyectos);
-			}
-			
 			try {
 				session.delete(proyectos);
 				return true;
