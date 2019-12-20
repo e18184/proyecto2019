@@ -85,10 +85,10 @@ public class SubirArchivoControlador {
         ModelAndView vista = new ModelAndView();
         Proyectos[] listproy = ProyectosDAO.listProyectosByQuery(null, null);
         proyecto.setProgramacion(ProgramacionDAO.getProgramacionByORMID(getIdprog()));
-
+        Proyectos sproy = null;
         for (int i = 0; i < listproy.length; i++) {
             if (listproy[i].getProgramacion() == proyecto.getProgramacion()) {
-                Proyectos sproy = ProyectosDAO.getProyectosByORMID(listproy[i].getIdproyecto());
+                sproy = ProyectosDAO.getProyectosByORMID(listproy[i].getIdproyecto());
                 sproy.setIdproyecto(listproy[i].getIdproyecto());
                 //sproy.setArea(listproy[i].getArea());
                 //sproy.setDocentesidusu(listproy[i].getDocentesidusu());
@@ -109,6 +109,7 @@ public class SubirArchivoControlador {
                         bout.flush();
                         bout.close();
                         sproy.setArchivo(path + "/" + filename);
+                        ProyectosDAO.save(sproy);
                         System.out.println("titulo" + sproy.getTitulo());
                         System.out.println("resumen" + sproy.getResumen());
                         System.out.println("programacion" + sproy.getProgramacion());
@@ -122,7 +123,7 @@ public class SubirArchivoControlador {
                     } catch (Exception e) {
                         System.out.println(e);
                     }
-                        ProyectosDAO.save(sproy);
+
                 }
 
             }
