@@ -1,5 +1,7 @@
 #menu ul li {
     background-color:#2e518b;
+     margin: 0;
+    padding: 0;
 }
 
 #menu ul {

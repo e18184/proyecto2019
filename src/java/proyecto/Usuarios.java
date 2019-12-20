@@ -313,5 +313,9 @@ public class Usuarios implements Serializable {
 	public String toString() {
 		return String.valueOf(getIdusu());
 	}
+
+    public void setUniversitarios(Usuarios usuario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 	
 }

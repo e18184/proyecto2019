@@ -391,5 +391,9 @@ public class GrupoDAO {
 			throw new PersistentException(e);
 		}
 	}
+
+    public static Grupo[] listProgramacionByQuery(Object object, Object object0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 	
 }
