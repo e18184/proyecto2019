@@ -10,7 +10,7 @@
     <body>
 <h1 class="centrar-texto">Programaciones</h1>
 
-        <table class="tabla" aling="center" border="0">
+        <table class="tabla" aling="center" border="1">
             <thead>
                 <tr>
                     <th>Sigla</th>

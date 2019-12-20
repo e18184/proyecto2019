@@ -43,23 +43,27 @@ public class VerNotasControlador {
             Proyectos[] listproy = ProyectosDAO.listProyectosByQuery(null, null);
 
             Proynotas proynota = new Proynotas();
-            proynota.setUsuario(usuario.getNombre()+" "+usuario.getApellido1() + " "+ usuario.getApellido2());
+            proynota.setUsuario(usuario.getNombre() + " " + usuario.getApellido1() + " " + usuario.getApellido2());
             for (int i = 0; i < listprog.length; i++) {
                 //System.out.println("usuario" + listprog[i].getIdusu().getIdusuId());
                 //System.out.println("session" + usuario.getUniversitarios().getIdusuId());
                 if (usuario.getUniversitarios().getIdusuId() == listprog[i].getIdusu().getIdusuId()) {
+                        System.out.println("pogra id " + listprog[i].getIdusu().getIdusuId()+" "+listprog[i].getIdusu().getIdusuId());
                     proynota.setIdprog(listprog[i].getIdprog());
                     for (int j = 0; j < listgrup.length; j++) {
                         if (listgrup[j].getId_grupo() == listprog[i].getIdcarr().getId_grupo()) {
-                            proynota.setId_grupo(listgrup[i].getId_grupo());
-                            proynota.setNombre(listgrup[i].getNombre());
+                        System.out.println("grupo id " + listgrup[j].getId_grupo()+ " "+ listprog[i].getIdcarr().getId_grupo());
+                            proynota.setId_grupo(listgrup[j].getId_grupo());
+                            proynota.setNombre(listgrup[j].getNombre());
                             for (int k = 0; k < listproy.length; k++) {
-                                if (listproy[k].getProgramacion() == listprog[j]) {
-                                    proynota.setNota(listproy[i].getNota());
-                                    proynota.setIdproyecto(listproy[i].getIdproyecto());
-                                    proynota.setTitulo(listproy[i].getTitulo());
+
+                                System.out.println("proy id " + listproy[k].getProgramacion() + " "+listprog[j]);
+                                //if (listproy[k].getProgramacion() == listprog[j]) {
+                                    proynota.setNota(listproy[k].getNota());
+                                    proynota.setIdproyecto(listproy[k].getIdproyecto());
+                                    proynota.setTitulo(listproy[k].getTitulo());
                                     listainterna.add(proynota);
-                                }
+                                //}
 
                             }
                         }

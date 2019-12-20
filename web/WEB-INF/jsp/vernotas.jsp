@@ -10,9 +10,10 @@
     <body>
 <h1 class="centrar-texto">Lista Notas</h1>
 
-        <table class="tabla" aling="center" border="0">
+        <table class="tabla" aling="center" border="1">
             <thead>
                 <tr>
+                    <th>Nombre</th>
                     <th>Materia</th>
                     <th>Nota</th>
                 </tr>
@@ -20,6 +21,9 @@
             <tbody>
                 <c:forEach items="${lista.getLista()}" var="notas" >
                     <tr>
+                        <td>    
+                            <c:out value="${notas.getUsuario()}"></c:out>
+                            </td>
                         <td>    
                             <c:out value="${notas.getNombre()}"></c:out>
                             </td>

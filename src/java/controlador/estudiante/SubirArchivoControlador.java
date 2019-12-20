@@ -88,13 +88,16 @@ public class SubirArchivoControlador {
 
         for (int i = 0; i < listproy.length; i++) {
             if (listproy[i].getProgramacion() == proyecto.getProgramacion()) {
-                
-                proyecto.setIdproyecto(listproy[i].getIdproyecto());
-                proyecto.setArea(listproy[i].getArea());
-                proyecto.setDocentesidusu(listproy[i].getDocentesidusu());
-                proyecto.setNota(listproy[i].getNota());
+                Proyectos sproy = ProyectosDAO.getProyectosByORMID(listproy[i].getIdproyecto());
+                sproy.setIdproyecto(listproy[i].getIdproyecto());
+                //sproy.setArea(listproy[i].getArea());
+                //sproy.setDocentesidusu(listproy[i].getDocentesidusu());
+                //sproy.setNota(listproy[i].getNota());
+                sproy.setTitulo(proyecto.getTitulo());
+                sproy.setResumen(proyecto.getResumen());
+                sproy.setEstado(proyecto.getEstado());
                 if (!file.isEmpty()) {
-                    borrarProyecto(listproy[i].getIdproyecto());
+                    //borrarProyecto(listproy[i].getIdproyecto());
                     String path = session.getServletContext().getRealPath("/images");
                     String filename = file.getOriginalFilename();
                     //System.out.println("subir " + filename);
@@ -105,21 +108,21 @@ public class SubirArchivoControlador {
                         bout.write(barr);
                         bout.flush();
                         bout.close();
-                        proyecto.setArchivo(path + "/" + filename);
-                        System.out.println("titulo" + proyecto.getTitulo());
-                        System.out.println("resumen" + proyecto.getResumen());
-                        System.out.println("programacion" + proyecto.getProgramacion());
-                        System.out.println("id " + proyecto.getIdproyecto());
-                        System.out.println("subir " + proyecto.getArchivo());
-                        System.out.println("subir " + proyecto.getDocentesidusu());
-                        System.out.println("subir " + proyecto.getArea());
-                        System.out.println("subir " + proyecto.getEstado());
-                        System.out.println("subir " + proyecto.getNota());
-                        ProyectosDAO.save(proyecto);
+                        sproy.setArchivo(path + "/" + filename);
+                        System.out.println("titulo" + sproy.getTitulo());
+                        System.out.println("resumen" + sproy.getResumen());
+                        System.out.println("programacion" + sproy.getProgramacion());
+                        System.out.println("id " + sproy.getIdproyecto());
+                        System.out.println("subir " + sproy.getArchivo());
+                        System.out.println("subir " + sproy.getDocentesidusu());
+                        System.out.println("subir " + sproy.getArea());
+                        System.out.println("subir " + sproy.getEstado());
+                        System.out.println("subir " + sproy.getNota());
 
                     } catch (Exception e) {
                         System.out.println(e);
                     }
+                        ProyectosDAO.save(sproy);
                 }
 
             }
