@@ -15,7 +15,7 @@
     <!--<context:component-scan base-package="config"></context:component-scan>-->
     <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
     <bean class = "org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
-    
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
     
     <!--
     Most controllers will use the ControllerClassNameHandlerMapping above, but
@@ -48,6 +48,9 @@
                 <prop key="principalcontenedor.htm">formPrincipalContenedor</prop>
                 <prop key="uanadir.htm">formUanadir</prop>
                 <prop key="listaestudiantemateria.htm">formListaEstudianteMateria</prop>
+                <prop key="vernotas.htm">formVerNotas</prop>
+                <prop key="subir.htm">formSubir</prop>
+                <prop key="subirarchivo.htm">formSubirArchivo</prop>
                 
             </props>
         </property>
@@ -87,5 +90,8 @@
     <bean name="formPrincipalContenedor" class="principal.PrincipalContenedorControler"/>
     <bean name="formUanadir" class="controlador.usuario.UanadirControler"/>
     <bean name="formListaEstudianteMateria" class="controlador.estudiante.ListaEstudianteMateriaControlador"/>
+    <bean name="formVerNotas" class="controlador.estudiante.VerNotasControlador"/>
+    <bean name="formSubir" class="controlador.estudiante.SubirControlador"/>
+    <bean name="formSubirArchivo" class="controlador.estudiante.SubirArchivoControlador"/>
     
 </beans>
